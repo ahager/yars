@@ -70,7 +70,7 @@ body {
     <!-- Form Actions -->
     <div class="control-group">
         <div class="controls">
-            <button type="submit" class="btn btn-success">Update</button>
+            <button type="submit" class="btn btn-success">{{ trans('button.update') }}</button>
         </div>
     </div>
     <!-- ./ form actions -->

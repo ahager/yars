@@ -1,23 +1,35 @@
 <?php
 
+/* App Common Buttons */
 return array(
 
-	'edit'    => 'Editar',
-	'update'  => 'Actualizar',
-	'delete'  => 'Eliminar',
-	'back'    => 'Volver',
-	'create'  => 'Crear',
-	'new'     => 'Nuevo',
+	# Answers
+	'yes'     => 'Si',
+	'no'      => 'No',
+	'confirm' => 'Confirmar',
 	'cancel'  => 'Cancelar',
-	'reset'   => 'Resetear',
-	'enter'   => 'Entrar',
-	'link'    => 'Vincular',
-	'submit'  => 'Enviar',
-	'search'  => 'Buscar',
-	'start'   => 'Empezar',
-	'about'   => 'Conocer',
-	'login'   => 'Iniciar Sesión',
-	'signup'  => 'Registrarme',
-	'submit_forgot'  => 'Recuperar Contraseña',
-	'reservations'  => 'Reservas',
+
+	# Actions
+	'submit'   => 'Enviar',
+	'reset'    => 'Resetear',
+	'search'   => 'Buscar',
+	'new'      => 'Nuevo',
+	'create'   => 'Crear',
+	'edit'     => 'Editar',
+	'update'   => 'Actualizar',
+	'remove'   => 'Quitar',
+	'delete'   => 'Eliminar',
+	'back'     => 'Volver',
+	'refresh'  => 'Actualizar',
+	'enter'    => 'Entrar',
+	'link'     => 'Vincular',
+	'start'    => 'Empezar',
+	'about'    => 'Conocer',
+	'upload'   => 'Subir',
+	'download' => 'Descargar',
+	
+	'login' =>
+	[	'login'    => 'Iniciar Sesión',
+		'signup'   => 'Registrarme',
+		'forgot'   => 'Olvidé mi Contraseña',  ]
 );

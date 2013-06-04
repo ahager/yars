@@ -137,14 +137,7 @@ Route::post('user/login', 'UserController@postLogin');
 # User RESTful Routes (Login, Logout, Register, etc)
 Route::controller('user', 'UserController');
 
-//:: Application Routes ::
-# Contact Us Static Page
-Route::get('contact-us', function()
-{
-    // Return about us page
-    return View::make('site/contact-us');
-});
-
+// Application Routes
 Route::get('directory', function()
 {
     $businesses = Business::all();

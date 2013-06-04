@@ -78,8 +78,8 @@
 				<label class="control-label" for="confirm">Activate User?</label>
 				<div class="controls">
 					<select{{{ ($user->id === Confide::user()->id ? ' disabled="disabled"' : '') }}} name="confirm" id="confirm">
-						<option value="1"{{{ ($user->confirmed ? ' selected="selected"' : '') }}}>{{{ trans('general.yes') }}}</option>
-						<option value="0"{{{ ( ! $user->confirmed ? ' selected="selected"' : '') }}}>{{{ trans('general.no') }}}</option>
+						<option value="1"{{{ ($user->confirmed ? ' selected="selected"' : '') }}}>{{{ trans('app.yes') }}}</option>
+						<option value="0"{{{ ( ! $user->confirmed ? ' selected="selected"' : '') }}}>{{{ trans('app.no') }}}</option>
 					</select>
 					{{{ $errors->first('confirm', '<span class="help-inline">:message</span>') }}}
 				</div>

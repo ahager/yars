@@ -52,7 +52,7 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 class NotAllowedException extends Exception {}
 App::error(function(NotAllowedException $exception, $code)
 {
-    return Redirect::to(URL::previous())->with('error', trans('not_allowed'));
+    return Redirect::to(URL::previous())->with('error', trans('msg.error.not_allowed'));
 });
 
 App::error(function(Exception $exception, $code)

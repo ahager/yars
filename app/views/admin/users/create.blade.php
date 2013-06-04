@@ -81,8 +81,8 @@
 				<label class="control-label" for="confirm">Activate User?</label>
 				<div class="controls">
 					<select name="confirm" id="confirm">
-						<option value="1"{{{ (Input::old('confirm', 0) === 1 ? ' selected="selected"' : '') }}}>{{{ trans('general.yes') }}}</option>
-						<option value="0"{{{ (Input::old('confirm', 0) === 0 ? ' selected="selected"' : '') }}}>{{{ trans('general.no') }}}</option>
+						<option value="1"{{{ (Input::old('confirm', 0) === 1 ? ' selected="selected"' : '') }}}>{{{ trans('app.yes') }}}</option>
+						<option value="0"{{{ (Input::old('confirm', 0) === 0 ? ' selected="selected"' : '') }}}>{{{ trans('app.no') }}}</option>
 					</select>
 					{{{ $errors->first('confirm', '<span class="help-inline">:message</span>') }}}
 				</div>

@@ -37,7 +37,7 @@
 			<!-- Last Name -->
 			{{ Former::text('last_name', _('admin/contacts/contacts.last_name')) }}
 			<!-- Gender -->
-			{{ Former::select('gender', _('admin/contacts/contacts.gender'))->options(['female'=>trans('general.female'), 'male'=>trans('general.male') ]) }}
+			{{ Former::select('gender', _('admin/contacts/contacts.gender'))->options(['female'=>trans('app.female'), 'male'=>trans('app.male') ]) }}
 			<!-- Birthdate -->
 			<div class="control-group {{ $errors->has('birthdate') ? 'error' : '' }}">
 				<label class="control-label" for="birthdate">{{ trans('admin/contacts/contacts.birthdate')}}</label>

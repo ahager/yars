@@ -37,7 +37,7 @@
 	<tr>
 		<th class="title"><label title="name">{{ trans('admin/contacts/contacts.fullname') }}</label></th>
 		<td class="value" title="{{ $contact->inverseFullname }}">{{ $contact->fullname }}&nbsp;
-			<img src="/assets/img/icon-gender-{{ $contact->gender }}-small.png" title="{{{ trans('general.'.$contact->gender) }}}" />
+			<img src="/assets/img/icon-gender-{{ $contact->gender }}-small.png" title="{{{ trans('app.'.$contact->gender) }}}" />
 		</td>
 	</tr>
 
@@ -56,7 +56,7 @@
 	@else
 	<tr>
 		<th class="title"><label title="nin">{{ trans('admin/contacts/contacts.nin') }}</label></th>
-		<td class="value"><span class="badge badge-info"><i class="icon icon-exclamation-sign icon-white"></i>&nbsp;{{ trans('messages.suggest_get_nin') }}</span></td>
+		<td class="value"><span class="badge badge-info"><i class="icon icon-exclamation-sign icon-white"></i>&nbsp;{{ trans('msg.suggest_get_nin') }}</span></td>
 	</tr>
 	@endif
 

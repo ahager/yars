@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title')
-{{{ trans('user/user.forgot_password') }}} ::
+{{ trans('site/login.title.forgot_password') }}
 @parent
 @stop
 
@@ -11,7 +11,9 @@
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-	<h1>Forgot Password</h1>
+	<h1>{{ trans('site/login.title.forgot') }}</h1>
 </div>
+
 {{ Confide::makeResetPasswordForm($token)->render() }}
+
 @stop

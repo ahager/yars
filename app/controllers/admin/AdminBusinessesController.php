@@ -48,7 +48,7 @@ class AdminBusinessesController extends AdminController {
 
             $this->user->businesses()->save($business);
 
-            return Redirect::to( 'admin/businesses' )->with( 'success', trans('messages.success.created') );
+            return Redirect::to( 'admin/businesses' )->with( 'success', trans('msg.success.created') );
         } else {
             return Redirect::to( 'admin/businesses/create' )->with( 'errors', $business->errors() );
         }

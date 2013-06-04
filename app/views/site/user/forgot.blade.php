@@ -17,9 +17,9 @@
 {{ Former::open( (Confide::checkAction('UserController@do_forgot_password')) ?: URL::to('/user/forgot') ) }}
     {{ Former::hidden('_token', csrf_token()) }}
 
-    <label for="email">{{{ trans('general.email') }}}</label>
+    <label for="email">{{{ trans('app.email') }}}</label>
     <div class="input-append">
-        <input placeholder="{{{ trans('general.email') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
+        <input placeholder="{{{ trans('app.email') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
 
         <input class="btn" type="submit" value="{{{ trans('button.submit_forgot') }}}">
     </div>

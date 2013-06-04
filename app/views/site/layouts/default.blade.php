@@ -6,12 +6,12 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			xbooking
+			
 			@show
 		</title>
-		<meta name="keywords" content="your, awesome, keywords, here" />
-		<meta name="author" content="Jon Doe" />
-		<meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<meta name="description" content="" />
 
 		<!-- Mobile Specific Metas
 		================================================== -->
@@ -63,20 +63,20 @@
 			                        <ul class="nav pull-right">
 			                            @if (Auth::check())
                                         @if (Auth::user()->hasRole('admin'))
-			                            <li>{{ HTML::link('admin', trans('site.nav.admin')); }}</li>
+			                            <li>{{ HTML::link('admin', trans('site/nav.admin_panel')); }}</li>
                                         @endif
-			                            <li><a href="{{{ URL::to('user') }}}">Logged in as {{{ Auth::user()->username }}}</a></li>
-			                            <li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
+			                            <li><a href="{{{ URL::to('user') }}}">{{ trans('site/nav.logged_in_as', ['username' => Auth::user()->username]) }}</a></li>
+			                            <li><a href="{{{ URL::to('user/logout') }}}">{{ trans('site/login.button.logout') }}</a></li>
 			                            @else
                     					<li class="divider-vertical"></li>
-                    					<li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">{{trans('site.login.signin')}}</a></li>
+                    					<li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">{{trans('site/login.button.signin')}}</a></li>
                     					<li class="dropdown">
                     					    <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon icon-user icon-white"></i> <strong class="caret"></strong></a>
                     					    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                     					        @include('login-small-form')
                     					    </div>
                     					</li>
-			                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">{{trans('site.login.signup')}}</a></li>
+			                            <li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">{{trans('site/login.button.signup')}}</a></li>
 			                            @endif
 			                        </ul>
 					</div>

@@ -53,7 +53,7 @@ class UserController extends BaseController {
                 $this->user->password_confirmation = $passwordConfirmation;
             } else {
                 // Redirect to the new user page
-                return Redirect::back()->with('error', Lang::get('user.alert.password_does_not_match'));
+                return Redirect::back()->with('error', Lang::get('site/login.alert.password_does_not_match'));
             }
         } else {
             unset($this->user->password);
@@ -67,7 +67,7 @@ class UserController extends BaseController {
         {
             // Redirect with success message, You may replace "Lang::get(..." for your custom message.
             return Redirect::to('user/login')
-                ->with( 'success', Lang::get('user.alert.account_created') );
+                ->with( 'success', Lang::get('site/login.alert.account_created') );
         }
         else
         {
@@ -108,7 +108,7 @@ class UserController extends BaseController {
                     $user->password_confirmation = $passwordConfirmation;
                 } else {
                     // Redirect to the new user page
-                    return Redirect::to('users')->with('error', Lang::get('user.alert.password_does_not_match'));
+                    return Redirect::to('users')->with('error', Lang::get('site/login.alert.password_does_not_match'));
                 }
             } else {
                 unset($user->password);
@@ -126,7 +126,7 @@ class UserController extends BaseController {
 
         if(empty($error)) {
             return Redirect::to('user')
-                ->with( 'success', Lang::get('user.alert.account_updated') );
+                ->with( 'success', Lang::get('site/login.alert.account_updated') );
         } else {
             return Redirect::to('user')
                 ->withInput(Input::except('password','password_confirmation'))
@@ -189,11 +189,11 @@ class UserController extends BaseController {
         {
             // Check if there was too many login attempts
             if ( Confide::isThrottled( $input ) ) {
-                $err_msg = Lang::get('user.alert.too_many_attempts');
+                $err_msg = Lang::get('site/login.alert.too_many_attempts');
             } elseif ( $this->user->checkUserExists( $input ) && ! $this->user->isConfirmed( $input ) ) {
-                $err_msg = Lang::get('user.alert.account_is_not_confirmed');
+                $err_msg = Lang::get('site/login.alert.account_is_not_confirmed');
             } else {
-                $err_msg = Lang::get('user.alert.wrong_credentials');
+                $err_msg = Lang::get('site/login.alert.wrong_credentials');
             }
 
             return Redirect::to('user/login')
@@ -212,12 +212,12 @@ class UserController extends BaseController {
         if ( Confide::confirm( $code ) )
         {
             return Redirect::to('user/login')
-                ->with( 'info', Lang::get('user.alert.confirmation') );
+                ->with( 'info', Lang::get('site/login.alert.confirmation') );
         }
         else
         {
             return Redirect::to('user/login')
-                ->with( 'error', Lang::get('user.alert.wrong_confirmation') );
+                ->with( 'error', Lang::get('site/login.alert.wrong_confirmation') );
         }
     }
 
@@ -239,13 +239,13 @@ class UserController extends BaseController {
         if( Confide::forgotPassword( Input::get( 'email' ) ) )
         {
             return Redirect::to('user/login')
-                ->with( 'notice', Lang::get('user.alert.password_reset') );
+                ->with( 'notice', Lang::get('site/login.alert.password_reset') );
         }
         else
         {
             return Redirect::to('user/forgot')
                 ->withInput()
-                ->with( 'error', Lang::get('user.alert.wrong_password_forgot') );
+                ->with( 'error', Lang::get('site/login.alert.wrong_password_forgot') );
         }
     }
 
@@ -277,13 +277,13 @@ class UserController extends BaseController {
         if( Confide::resetPassword( $input ) )
         {
             return Redirect::to('user/login')
-            ->with( 'notice', Lang::get('user.alert.password_reset') );
+            ->with( 'notice', Lang::get('site/login.alert.password_reset') );
         }
         else
         {
             return Redirect::to('user/reset')
                 ->withInput()
-                ->with( 'error', Lang::get('user.alert.wrong_password_reset') );
+                ->with( 'error', Lang::get('site/login.alert.wrong_password_reset') );
         }
     }
 

@@ -37,7 +37,7 @@
 			<td>@foreach ($user->roles as $u)
                 <div>{{ $u->name }}</div>
                 @endforeach</td>
-			<td>{{{ trans('general.' . ($user->confirmed ? 'yes' : 'no')) }}}</td>
+			<td>{{{ trans('app.' . ($user->confirmed ? 'yes' : 'no')) }}}</td>
 			<td>{{{ $user->getPresenter()->displayDate() }}}</td>
 			<td>
 				<a href="{{{ URL::to('admin/users/' . $user->id . '/edit') }}}" class="btn btn-mini">{{{ trans('button.edit') }}}</a>
