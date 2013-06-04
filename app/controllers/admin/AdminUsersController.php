@@ -95,6 +95,7 @@ class AdminUsersController extends AdminController {
         $this->user->password_confirmation = Input::get( 'password_confirmation' );
         $this->user->confirmed = Input::get( 'confirm' );
 
+        // ToDo: Get existing user instead of returning Error
         # $existingUser = User::getExisting(Input::all());
         # if ($existingUser) {
         #     $this->user = $existingUser;
@@ -103,6 +104,7 @@ class AdminUsersController extends AdminController {
         # {
         #     $this->user->save();
         # }
+
         $this->user->save();
 
         if ( $this->user->id )
@@ -111,11 +113,10 @@ class AdminUsersController extends AdminController {
             $this->user->saveRoles(Input::get( 'roles' ));
 
             $contact = Contact::getExisting($this->business, Input::all());
-            # return var_dump($contact);
+
             if (!$contact) {
                 $contact = Contact::create(['first_name'=>Input::get('first_name'), 'last_name'=>Input::get('last_name'), 'gender'=>'unknown']);
                 $contact->save();
-                # $contact->business->save($this->business);
             }
             $this->business->contacts()->save($contact);
             $this->user->contacts()->save($contact);
@@ -143,6 +144,7 @@ class AdminUsersController extends AdminController {
      */
     public function getShow($user)
     {
+        # ToDo
         // redirect to the frontend
     }
 
@@ -180,7 +182,6 @@ class AdminUsersController extends AdminController {
         if (!$user->belongsToBusiness($this->business)) throw new NotAllowedException;
         // Validate the inputs
         $validator = Validator::make(Input::all(), $user->getUpdateRules());
-
 
         if ($validator->passes())
         {
@@ -266,7 +267,7 @@ class AdminUsersController extends AdminController {
         $user = User::find($id);
         if ( empty($user) )
         {
-            // TODO needs to delete all of that user's content
+            // ToDo needs to delete all of that user's content
             return Redirect::to('admin/users')->with('success', Lang::get('admin/users/messages.delete.success'));
         }
         else

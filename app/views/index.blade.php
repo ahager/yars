@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>turnos</title>
+    <title>{{ trans('general.title') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -94,7 +94,6 @@
 
       @include('notifications')
 
-      <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit" style="background: url('{{ URL::to('/') }}/assets/img/bg1.png') #4261BC repeat">
         <h1>turnos por internet.</h1>
         <h2>hecho fácil.</h2>
@@ -102,7 +101,6 @@
         <p>{{ Button::success_large_link('user/create', trans('button.start').'!') }}</p>
       </div>
 
-      <!-- Example row of columns -->
       <div class="row">
        <div class="span4">
           <h2>¿ Qué es ?</h2>
@@ -138,16 +136,12 @@
 
 <div class="container">
   @include('site/business/list')
-</div>
+
       <footer>
         <p>&copy; <a href="http://alariva.com">alariva.com</a> 2013</p>
       </footer>
-
-    </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+</div>
+    <!-- Assets: At the end of the document so the pages load faster -->
     {{ basset_stylesheets('public-css') }}
     {{ basset_javascripts('public-js') }}
 
@@ -181,7 +175,7 @@ $(document).ready(function(){
                       return process(newData);
                   }
               );
-          }, 300); // 300 ms
+          }, 300); // milliseconds
       }
   });
 });

@@ -40,7 +40,6 @@ class AdminContactsController extends AdminController {
     public function getSearch($criteria)
     {
         $contacts = Contact::search($this->business, $criteria);
-        # return var_dump($contacts);
         return View::make('admin/contacts/index', compact('contacts'));
     }
 
@@ -64,7 +63,7 @@ class AdminContactsController extends AdminController {
         $contact = Contact::getByFullname( Input::get('last_name'), Input::get('first_name'), $this->business->id );
         if ($contact) 
         {
-            return $this->postEdit($contact)->with('warning', 'El contacto ya existia, lo actualizamos por vos');
+            return $this->postEdit($contact)->with('warning', trans('admin/contacts/contacts.alert.updated_already_registered'));
         }
 
         $contact = Contact::getByFullname( Input::get('last_name'), Input::get('first_name'));
@@ -73,8 +72,8 @@ class AdminContactsController extends AdminController {
             $clonedContact = Contact::create($contact->toArray());
             $clonedContact->notes = null;
             if ($clonedContact->save()) {
-                $this->business->contacts()->save($clonedContact); # OK
-                return Redirect::to('admin/contacts/'.$clonedContact->id.'/show')->with('success', 'Clonamos el perfil!');
+                $this->business->contacts()->save($clonedContact);
+                return Redirect::to('admin/contacts/'.$clonedContact->id.'/show')->with('success', trans('admin/contacts/contacts.alert.cloned'));
             };
             return Redirect::back()->with('errors', $clonedContact->errors() );
         }
@@ -83,9 +82,7 @@ class AdminContactsController extends AdminController {
         $contact->fill(Input::all());
 
         if ( $contact->save() ) {
-
-            # $contact->business->save($this->business);
-            $this->business->contacts()->save($contact); # OK
+            $this->business->contacts()->save($contact);
 
             return Redirect::to( 'admin/contacts' )->with( 'success', trans('admin/contacts/contacts.alert.registered') );
         } else {
@@ -102,7 +99,7 @@ class AdminContactsController extends AdminController {
     public function getShow($contact)
     {
         if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
-        // Show the page
+        
         return View::make('admin/contacts/show', compact('contact'));
     }
 
@@ -137,7 +134,7 @@ class AdminContactsController extends AdminController {
         if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
         
         $contact->fill(Input::all());
-        # if ($contact->save(['nin'=> Contact::$rules['nin'].','.$contact->id])) {
+
         if ($contact->save()) {
             // Save Contact Channels
             $contact->channels()->delete();
@@ -149,7 +146,6 @@ class AdminContactsController extends AdminController {
                 $channel->save();
                 $contact->channels()->save($channel);
             }
-            # return Redirect::to('admin/contacts/'.$contact->id.'/edit')->with('success', Lang::get('admin/contacts/messages.edit.success'));
             return Redirect::to('admin/contacts/'.$contact->id.'/show')->with('success', Lang::get('admin/contacts/messages.edit.success'));
         }
         return Redirect::to('admin/contacts/'.$contact->id.'/edit')->with( 'errors', $contact->errors() );
@@ -183,8 +179,6 @@ class AdminContactsController extends AdminController {
     public function getLinkUser($contact)
     {
         if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
-        # $this->contact = new ContactPresenter($contact);
-        $view['contact'] = new ContactPresenter($contact);
         return View::make('admin/contacts/link-user', $view);
     }
 

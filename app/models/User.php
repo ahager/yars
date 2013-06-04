@@ -106,11 +106,6 @@ class User extends ConfideUser implements PresentableInterface {
         return array($user, $redirectTo);
     }
 
-#    public function currentUser()
-#    {
-#        return (new Confide)->user();
-#    }
-
     public function belongsToBusiness(Business $business)
     {
         return $this->businesses->contains($business->id);
@@ -133,10 +128,11 @@ class User extends ConfideUser implements PresentableInterface {
 
     public static function getExisting(Array $data)
     {
+        # ToDo Improve cascade lookup
         $existingUser = false;
-        if (array_key_exists('nin', $data)) $existingUser = User::where('nin', '=', $data['nin']);
-        if (!$existingUser && array_key_exists('email', $data)) $existingUser = User::where('email', '=', $data['email']);
-        if (!$existingUser && array_key_exists('first_name', $data) && array_key_exists('last_name', $data)) $existingUser = User::where('first_name', '=', $data['first_name'])->where('last_name', '=', $data['last_name']);
+        if (array_key_exists('nin', $data)) $existingUser = self::where('nin', '=', $data['nin']);
+        if (!$existingUser && array_key_exists('email', $data)) $existingUser = self::where('email', '=', $data['email']);
+        if (!$existingUser && array_key_exists('first_name', $data) && array_key_exists('last_name', $data)) $existingUser = self::where('first_name', '=', $data['first_name'])->where('last_name', '=', $data['last_name']);
         return $existingUser ? $existingUser->first() : false;
     }
 }

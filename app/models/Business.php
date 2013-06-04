@@ -40,14 +40,5 @@ class Business extends Ardent {
         return $this->attributes['slug'];
     }
 
-#    public function setSlugAttribute($slug)
-#    {
-#        $this->slug = Str::slug($this->name);
-#    }
-#
-#    public function getSlugAttribute()
-#    {
-#        return $this->slug;
-#    }
 }
 

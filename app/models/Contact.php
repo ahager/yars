@@ -20,12 +20,12 @@ class Contact extends Ardent {
 
 	public function created_at()
 	{
-		# return ExpressiveDate::make($this->created_at)->getRelativeDate();
 		return new Carbon($this->created_at);
 	}
 
 	public function getAgeAttribute()
 	{
+        # ToDo Use Presenter for dates
 		return $this->birthdate == '0000-00-00' ? '' : (new Carbon($this->birthdate))->age;
 	}
 
@@ -33,11 +33,6 @@ class Contact extends Ardent {
 	{
 		return $this->user ? $this->user()->first()->username : '';
 	}
-
-	#public function user()
-	#{
-	#	return $this->belongsTo('User')->first();
-	#}
 
 	public function user()
 	{
@@ -87,7 +82,7 @@ class Contact extends Ardent {
     	return $this->hasMany('Channel');
     }
 
-    # ToDo: Move to presenter
+    # ToDo Move to presenter
     public function getEmailAttribute()
     {
     	foreach ($this->channels as $channel) {
@@ -98,6 +93,7 @@ class Contact extends Ardent {
 
     public static function search($business, $criteria)
     {
+        # ToDo Improve search - This is very basic
     	$result = self::where('business_id','=', $business->id)
     				  ->where('last_name', '=', $criteria)
     				  ->orWhere('first_name', '=', $criteria)
@@ -108,6 +104,7 @@ class Contact extends Ardent {
 
     public static function getExisting(Business $business, Array $data)
     {
+        # ToDo Improve cascade lookup
         $existingUser = false;
         if (array_key_exists('nin', $data))
         	$existingUser = self::where('business_id','=',$business->id)->where('nin', '=', $data['nin']);
