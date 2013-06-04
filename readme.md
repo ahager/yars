@@ -1,5 +1,7 @@
 ## YARS: Yet Another Reservation System
 
+[![ProjectStatus](http://stillmaintained.com/alariva/yars.png)](http://stillmaintained.com/alariva/yars)
+
 *YARS* is a web based reservations system under [Laravel 4 PHP Framework](http://github.com/laravel/framework).
 
 So far, I've started *from scratch* to move a working application under [Code Igniter 2 PHP Framework](http://ellislab.com/codeigniter). This application is already working but has reached it's limits on scalability and maintainability of the code.
