@@ -10,14 +10,12 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
- # Route::get('tezt', function() { return trans('admin/contacts/contact.first_name'); });
 
 
 Route::group(array('prefix' => 'api'), function() {
     Route::get('businesses', function() {
         $businesses = Business::all(['id','name'])->toArray();
         return Response::JSON( $businesses );
-        # return Response::JSON(['hola','chau','mundo']);
     });
 });
 
@@ -32,38 +30,12 @@ Route::model('role', 'Role');
 Route::model('contact', 'Contact');
 Route::model('business', 'Business');
 
-# Route::resource('businesses', 'AdminBusinessesController');
-# Route::resource('businesses.contacts', 'AdminContactsController');
-
 /** ------------------------------------------
  *  Admin Routes
  *  ------------------------------------------
  */
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
-    # Comment Management
-#    Route::get('comments/{comment}/edit', 'AdminCommentsController@getEdit')
-#        ->where('comment', '[0-9]+');
-#    Route::post('comments/{comment}/edit', 'AdminCommentsController@postEdit')
-#        ->where('comment', '[0-9]+');
-#    Route::get('comments/{comment}/delete', 'AdminCommentsController@getDelete')
-#        ->where('comment', '[0-9]+');
-#    Route::post('comments/{comment}/delete', 'AdminCommentsController@postDelete')
-#        ->where('comment', '[0-9]+');
-#    Route::controller('comments', 'AdminCommentsController');
-
-    # Blog Management
- #   Route::get('blogs/{post}/show', 'AdminBlogsController@getShow')
- #       ->where('post', '[0-9]+');
- #   Route::get('blogs/{post}/edit', 'AdminBlogsController@getEdit')
- #       ->where('post', '[0-9]+');
- #   Route::post('blogs/{post}/edit', 'AdminBlogsController@postEdit')
- #       ->where('post', '[0-9]+');
- #   Route::get('blogs/{post}/delete', 'AdminBlogsController@getDelete')
- #       ->where('post', '[0-9]+');
- #   Route::post('blogs/{post}/delete', 'AdminBlogsController@postDelete')
- #       ->where('post', '[0-9]+');
- #   Route::controller('blogs', 'AdminBlogsController');
 
     # User Management
     Route::get('users/{user}/show', 'AdminUsersController@getShow')
@@ -117,9 +89,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
         ->where('contact', '[0-9]+');
     Route::post('contacts/{contact}/link', 'AdminContactsController@postLinkUser')
         ->where('contact', '[0-9]+');
-    # Route::get('contacts/{contact}/{user}/link', 'AdminContactsController@getLinkUser')
-    #     ->where('contact', '[0-9]+')
-    #     ->where('user', '[0-9]+');
     Route::controller('contacts', 'AdminContactsController');
 
     # Business
@@ -181,8 +150,6 @@ Route::get('directory', function()
     $businesses = Business::all();
     return View::make('index', compact('businesses'));
 });
-
-# Route::resource('businesses', 'BusinessesController');
 
 # Business Switch
 Route::get('{businessSlug}', function($businessSlug)
