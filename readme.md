@@ -3,9 +3,11 @@
 
 [![ProjectStatus](http://stillmaintained.com/alariva/yars.png)](http://stillmaintained.com/alariva/yars)
 
+> **Advice:** This project is on *alpha* stage under heavy development from scratch. You may collaborate as much as you will.
+
 *YARS* is a web based reservations system under [Laravel 4 PHP Framework](http://github.com/laravel/framework).
 
-So far, I've started *from scratch* to move a tiny-but-growing application called *xbooking* under [Code Igniter 2 PHP Framework](http://ellislab.com/codeigniter). You can see a [LIVE DEMO HERE](https://xbooking.com.ar/demo/). This application is already working but has reached it's limits on scalability and maintainability of the code, and is only available in *spanish*.
+So far, I've started *from scratch* to move a tiny-but-growing application called *xbooking* under [Code Igniter 2 PHP Framework](http://ellislab.com/codeigniter). You can see a [LIVE DEMO HERE](https://xbooking.com.ar/demo/) (demo:demo and cliente:cliente). This application is already working but has reached it's limits on scalability and maintainability of the code, and is only available in *spanish*.
 
 The current milestone is getting the basic *Contact Address Book* working on clean code, while trying to achieve:
 
