@@ -1,7 +1,7 @@
 {
-    "name": "alariva/xbooking",
-    "description": "xbooking web reservation system",
-    "keywords": ["reservations", "business"],
+    "name": "alariva/yars",
+    "description": "Yet Another Reservation System",
+    "keywords": ["reservations", "business", "internet", "appointments", "booking", "timetable"],
 	"require": {
 		"laravel/framework": "4.0.*",
 		"zizaco/confide": "dev-master",
