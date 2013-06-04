@@ -12,14 +12,10 @@
 		"anahkiasen/former": "dev-master",
 		"jonob/html": "1.1.*",
 		"patricktalmadge/bootstrapper": "dev-develop",
-		"way/generators": "dev-master",
 		"laravelbook/laravel4-powerpack": "dev-master"
 	},
 	"require-dev": {
         "way/generators": "dev-master",
-        "mockery/mockery": "dev-master@dev",
-        "summerstreet/woodling": "0.1.*",
-        "barryvdh/laravel-ide-helper": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

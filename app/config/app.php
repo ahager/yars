@@ -124,8 +124,8 @@ return array(
         'Bootstrapper\BootstrapperServiceProvider', // Bootsreapper
 
         /* Uncomment for use in development */
-//        'Way\Generators\GeneratorsServiceProvider', // Generators
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
+        // ToDo - IDE Helpers - I'd like to add this but currently seems to cause some conflict
+        # 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
     ),
 
