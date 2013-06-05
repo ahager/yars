@@ -3,7 +3,7 @@
 return array(
 
 	'name'       => 'Name',
-	'users'      => '# of Users',
-	'created_at' => 'Created at',
+	'users'      => '# of users',
+	'created_at' => 'Created',
 
 );

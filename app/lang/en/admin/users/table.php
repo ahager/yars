@@ -4,7 +4,7 @@ return array(
 
 	'first_name' => 'First Name',
 	'last_name'  => 'Last Name',
-	'user_id'  => 'User Id',
+	'user_id'  => 'ID',
 	'username'  => 'Username',
 	'email'      => 'Email',
 	'groups'     => 'Groups',

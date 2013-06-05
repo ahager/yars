@@ -2,23 +2,23 @@
 
 return array(
 
-	'already_exists' => 'Role already exists!',
-	'does_not_exist' => 'Role does not exist.',
-	'name_required'  => 'The name field is required',
+	'already_exists' => 'The role already exists!',
+	'does_not_exist' => 'The role does not exist.',
+	'name_required'  => 'The name is required',
 
 	'create' => array(
-		'error'   => 'Role was not created, please try again.',
-		'success' => 'Role created successfully.'
+		'error'   => 'The role could not be created.',
+		'success' => 'Role created OK.'
 	),
 
 	'update' => array(
-		'error'   => 'Role was not updated, please try again',
-		'success' => 'Role updated successfully.'
+		'error'   => 'The role could not be udated.',
+		'success' => 'Role updated OK.'
 	),
 
 	'delete' => array(
-		'error'   => 'There was an issue deleting the role. Please try again.',
-		'success' => 'The role was deleted successfully.'
+		'error'   => 'There was an error while deleting the role.',
+		'success' => 'The role was deleted OK.'
 	)
 
 );
