@@ -10,8 +10,6 @@ This is just a first approach, under revision.
   * still identify the meaning of the wording in case the lang fetch fails
   * optimize file loading
 
-### Common Elements
-
 Most short words will be used among all the app, such as buttons and nav items.
 
 Keys will be likely to:
@@ -43,4 +41,3 @@ Keys will be likely to:
   * refer to long texts
 
         contextName/viewName.elementType.codeName
-
