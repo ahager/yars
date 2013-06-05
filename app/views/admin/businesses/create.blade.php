@@ -3,14 +3,14 @@
 {{-- Web site Title --}}
 @section('title')
 @parent
-	{{ trans('admin/businesses/title.create') }}
+	{{ trans('admin/business.title.create') }}
 @stop
 
 {{-- Content --}}
 @section('content')
 <div class="page-header">
 	<h3>
-		{{ trans('admin/businesses/title.create') }}
+		{{ trans('admin/business.title.create') }}
 		<div class="pull-right">
 			{{ Button::link_inverse_small('admin/businesses', trans('button.back'))->with_icon('circle-arrow-left icon-white') }}
 		</div>
@@ -22,13 +22,13 @@
 	{{ Former::hidden('_token', csrf_token()) }}
 
 			<!-- First Name -->
-			{{ Former::text('name', trans('admin/businesses/businesses.name')) }}
+			{{ Former::text('name', trans('admin/business.label.name')) }}
 			<!-- Slug -->
-			{{ Former::text('slug', trans('admin/businesses/businesses.slug')) }}
+			{{ Former::text('slug', trans('admin/business.label.slug')) }}
 
-			{{ Former::text('description', trans('admin/businesses/businesses.description')) }}
+			{{ Former::text('description', trans('admin/business.label.description')) }}
 			<!-- Website -->
-			{{ Former::text('website', trans('admin/businesses/businesses.website')) }}
+			{{ Former::text('website', trans('admin/business.label.website')) }}
 
 	<!-- Form Actions -->
 	{{ Former::actions()->primary_submit( trans('button.create') )->reset( trans('button.reset') ) }}

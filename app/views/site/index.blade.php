@@ -3,18 +3,18 @@
 {{-- Web site Title --}}
 @section('title')
 @parent
-:: Mis Negocios
+	{{ trans('site/index.title') }}
 @stop
 
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-	<h3>TRANS Comercios</h3>
+	<h3>{{ trans('site/index.title' )}}</h3>
 </div>
 
 <div class="container">
 @if($contacts->count() == 0)
-	<div class="alert alert-info">TRANS Te damos la bienvenida! No estás adherido a ningún comercio, te invitamos a que los conozcas!</div>
+	<div class="alert alert-info">{{ trans('site/index.msg.not_suscribed_to_any_business') }}</div>
 		@include('site/business/list')
 @else
 <table class="table table-hover">
@@ -55,7 +55,7 @@
 
 @if(!Entrust::hasRole('admin'))
 {{ Former::open('site/request/ownership') }}
-{{ Button::submit('Tengo un negocio') }}
+{{ Button::submit(trans('site/index.button.i_own_a_business')) }}
 {{ Former::close() }}
 @endif
 

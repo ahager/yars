@@ -3,15 +3,14 @@
 {{-- Web site Title --}}
 @section('title')
 @parent
-:: Mis Negocios
+	{{ trans('admin/business.title.index') }}
 @stop
 
 {{-- Content --}}
 @section('content')
 <div class="page-header">
 	<h3>
-		Mis negocios
-
+		{{ trans('admin/business.title.index') }}
 		<div class="pull-right">
 			<a href="{{ URL::to('admin/businesses/create') }}" class="btn btn-small btn-info"><i class="icon-plus-sign icon-white"></i> {{ trans('button.new') }}</a>
 		</div>
@@ -21,11 +20,11 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-			<th class="span2">{{ trans('admin/businesses/table.slug') }}</th>
-			<th class="span4">{{ trans('admin/businesses/table.name') }}</th>
-			<th class="span2">{{ trans('admin/businesses/table.website') }}</th>
-			<th class="span3">{{ trans('admin/businesses/table.created_at') }}</th>
-			<th class="span3">{{ trans('admin/businesses/table.contacts') }}</th>
+			<th class="span2">{{ trans('admin/business.table.slug') }}</th>
+			<th class="span4">{{ trans('admin/business.table.name') }}</th>
+			<th class="span2">{{ trans('admin/business.table.website') }}</th>
+			<th class="span3">{{ trans('admin/business.table.created_at') }}</th>
+			<th class="span3">{{ trans('admin/business.table.contacts') }}</th>
 			<th class="span2">{{ trans('table.actions') }}</th>
 		</tr>
 	</thead>

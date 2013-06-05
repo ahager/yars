@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			
+				{{-- ToDo --}}
 			@show
 		</title>
 		<meta name="keywords" content="" />
