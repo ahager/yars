@@ -36,7 +36,6 @@ Route::model('business', 'Business');
  */
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
-
     # User Management
     Route::get('users/{user}/show', 'AdminUsersController@getShow')
         ->where('user', '[0-9]+');
@@ -115,7 +114,7 @@ Route::group(array('prefix' => 'site', 'before' => 'auth'), function()
 {
     Route::post('request/ownership', function(){
         if (!Confide::user()->hasRole('admin')) Confide::user()->saveRoles([1]);
-        return Redirect::back()->with('success', 'Ya podes crear comercios');
+        return Redirect::back()->with('success', trans('site/msg.you_can_now_register_businesses'));
     });
 
     Route::get('reservations', 'SiteController@getReservations');

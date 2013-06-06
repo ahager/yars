@@ -46,10 +46,22 @@ Route::filter('auth', function()
 	}
 });
 
-
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();
+});
+
+/* Before going into the Admin panel we must check the user is Admin and owns the selected Business (businessSlug) */
+Route::filter('business', function()
+{
+	if (Entrust::hasRole('admin'))
+	{
+		 $business = Business::getBySlug(Session::get('businessSlug', false));
+		 # No Business or incorrect Business selected
+		 if (!$business) return Redirect::to('admin/business')->with('warning', trans('site/msg.select_a_business_first'));
+		 # The selected business is not owned, don't allow admin access
+		 if (!Auth::user()->businesses->contains($business->id)) throw new NotAllowedException;
+	}
 });
 
 /*

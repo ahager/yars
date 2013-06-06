@@ -73,8 +73,8 @@ class AdminBusinessesController extends AdminController {
      */
     public function getEdit($business)
     {
-        if (!$this->user->businesses->contains($business->id)) throw new NotAllowedException;
-        # return var_dump($business);
+        # if (!$this->user->businesses->contains($business->id)) throw new NotAllowedException; # Moved to beforeFilter
+
         Former::populate($business);
         return View::make('admin/businesses/edit', compact($business));
     }
@@ -87,10 +87,10 @@ class AdminBusinessesController extends AdminController {
      */
     public function postEdit($business)
     {
-        if (!$this->user->businesses->contains($business->id)) throw new NotAllowedException;
+        # if (!$this->user->businesses->contains($business->id)) throw new NotAllowedException; # Moved to beforeFilter
 
         $business->fill(Input::all());
-        # $business->slug(Input::get('slug'));
+
         $business->save(['slug'=>'unique:businesses,slug,'.$business->id]);
         return Redirect::to('admin/businesses/index')->with('success', 'edited!');
     }

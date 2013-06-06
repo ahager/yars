@@ -23,7 +23,7 @@ class AdminContactsController extends AdminController {
         parent::__construct();
         $this->contact = $contact;
         $this->business = Business::getBySlug( Session::get('businessSlug') );
-        if(!$this->business->users->contains(Confide::user()->id)) throw new NotAllowedException;
+        # if(!$this->business->users->contains(Confide::user()->id)) throw new NotAllowedException; # Moved to beforeFilter
     }
 
     /**
@@ -98,8 +98,8 @@ class AdminContactsController extends AdminController {
      */
     public function getShow($contact)
     {
-        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
-        
+        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException; # ToDo: Move to a beforeFilter
+
         return View::make('admin/contacts/show', compact('contact'));
     }
 
@@ -111,7 +111,7 @@ class AdminContactsController extends AdminController {
      */
     public function getEdit($contact)
     {
-        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
+        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException; # ToDo: Move to a beforeFilter
 
         if ( $contact )
         {
@@ -131,7 +131,7 @@ class AdminContactsController extends AdminController {
      */
     public function postEdit($contact)
     {
-        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
+        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException; # ToDo: Move to a beforeFilter
         
         $contact->fill(Input::all());
 
@@ -159,7 +159,7 @@ class AdminContactsController extends AdminController {
      */
     public function getDelete($contact)
     {
-        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
+        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException; # ToDo: Move to a beforeFilter
         return View::make('admin/contacts/delete', compact('contact'));
     }
 
@@ -171,20 +171,20 @@ class AdminContactsController extends AdminController {
      */
     public function postDelete($contact)
     {
-        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
+        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException; # ToDo: Move to a beforeFilter
         $contact->delete();
         return Redirect::to('admin/contacts')->with('success', Lang::get('admin/contacts/messages.delete.ok'));
     }
 
     public function getLinkUser($contact)
     {
-        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
+        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException; # ToDo: Move to a beforeFilter
         return View::make('admin/contacts/link-user', $view);
     }
 
     public function postLinkUser($contact)
     {
-        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException;
+        if (!$this->business->contacts->contains($contact->id)) throw new NotAllowedException; # ToDo: Move to a beforeFilter
 
         if ($user = User::findBy('email', Input::get('email')))
         {
