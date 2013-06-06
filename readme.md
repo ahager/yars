@@ -19,6 +19,10 @@ Despite this sounds very a basic goal, it's important to start from the very beg
 
 This is just the beginning, stay tuned :)
 
+## Roadmap
+
+Please see [current milestones](https://github.com/alariva/yars/issues/milestones) to get a full *storytelling* of what is expected to be done.
+
 ## Official Documentation
 
 Documentation will be available soon.
