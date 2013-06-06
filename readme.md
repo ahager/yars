@@ -23,6 +23,67 @@ This is just the beginning, stay tuned :)
 
 Please see [current milestones](https://github.com/alariva/yars/issues/milestones) to get a full *storytelling* of what is expected to be done.
 
+## How to install *Quick Setup*
+### Step 1: Get the code
+#### Git Clone
+
+    git clone https://github.com/alariva/yars.git yars
+
+### Step 2: Use Composer to install dependencies
+
+    cd yars
+    curl -s http://getcomposer.org/installer | php
+    php composer.phar install --dev
+
+> You might want to make [composer be installed globally](http://andrewelkins.com/programming/php/setting-up-composer-globally-for-laravel-4/) for future ease of use.
+
+### Step 3: Configure Database and Language
+
+Update the file ***app/config/database.php***
+
+> **Available languages:** en, es
+
+### Step 4: Populate Database
+
+    php artisan migrate
+    php artisan db:seed
+
+### Step 5: Set Encryption Key
+
+    php artisan key:generate
+
+### Step 6: Make sure app/storage is writable by your web server.
+
+    chmod -R 775 app/storage
+
+Fallback:
+
+    chmod -R 777 app/storage
+
+## Step 7: Build Assets
+
+Basset needs to build the assets.
+
+    php artisan basset:build
+
+## Step 8: Start Page
+
+    php artisan serve
+
+### User login
+
+Navigate to your Laravel 4 website and login at /user/login:
+
+    username : user
+    password : user
+
+### Admin login
+
+Navigate to /admin
+
+    username: admin
+    password: admin
+
 ## Official Documentation
 
 Documentation will be available soon.
