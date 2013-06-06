@@ -10,6 +10,9 @@ This is just a first approach, under revision.
   * still identify the meaning of the wording in case the lang fetch fails
   * optimize file loading
 
+
+# Application-Wide
+
 Most short words will be used among all the app, such as buttons and nav items.
 
 Keys will be likely to:
@@ -18,7 +21,7 @@ Keys will be likely to:
   * be short strings in order to easily reference them
   * be kept in a single file for faster loading
 
-        elementType.name
+    elementType.name
 
 ### Model Attributes
 
@@ -29,7 +32,7 @@ Keys will be likely to:
   * be needed in different modules, always with the same meaning
   * refer different strings for the same item depending on the element type that holds it
 
-        contextName/modelName.elementType.attributeName
+    contextName/modelName.elementType.attributeName
 
 ### View-Specific Elements
 
@@ -40,4 +43,28 @@ Keys will be likely to:
   * be needed in a single view
   * refer to long texts
 
-        contextName/viewName.elementType.codeName
+    contextName/viewName.elementType.codeName
+
+# Diagram
+
+                        +-----------------------------------------------+
+                        |                                               |
+     App-Wide           |     Common Buttons, Nav, Titles, Labels, etc  |
+                        |                                               |
+                        +-----------------------------------------------+
+                        +-----------------+ +---------+---------+-------+
+                        |                 | |         \         /       |
+     Model              |       M 1       | |   M 2   /  M 2,3  \  M 3  |
+                        |                 | |         \         /       |
+                        +-----------------+ +---------+---------+-------+
+                        +-------+ +-------+ +-------+ +-------+ +-------+
+                        |       | |       | |       | |       | |       |
+     View-Specific      |  V A  | |  V B  | |  V C  | |  V D  | |  V E  |
+                        |       | |       | |       | |       | |       |
+                        +-------+ +-------+ +-------+ +-------+ +-------+
+     - - - - - - - - -      ^         ^         ^         ^         ^    
+                        +-------+ +-------+ +-------+ +-------+ +-------+
+                        |       | |       | |       | |       | |       |
+     Views              |   A   | |   B   | |   C   | |   D   | |   E   |
+                        |       | |       | |       | |       | |       |
+                        +-------+ +-------+ +-------+ +-------+ +-------+
