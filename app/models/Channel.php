@@ -24,14 +24,16 @@ class Channel extends Ardent {
 		return new Carbon($this->created_at);
 	}
 
-	public function contact()
-	{
-		return $this->belongsTo('Contact');
-	}
-
 	public function isEmail()
 	{
 		return self::TYPE_EMAIL == $this->type;
 	}
 
+	## Relationships ##
+
+	/* A communication Channel belongs to a Contact */
+	public function contact()
+	{
+		return $this->belongsTo('Contact');
+	}
 }

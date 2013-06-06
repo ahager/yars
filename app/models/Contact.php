@@ -34,11 +34,6 @@ class Contact extends Ardent {
 		return $this->user ? $this->user()->first()->username : '';
 	}
 
-	public function user()
-	{
-		return $this->belongsTo('User');
-	}
-
 	public function setNinAttribute($nin)
 	{
 		$this->attributes['nin'] = $nin == '' ? null : $nin;
@@ -72,16 +67,6 @@ class Contact extends Ardent {
         return self::where('business_id','=',$businessId)->where('last_name', '=', $last_name)->where('first_name', '=', $first_name)->first();
     }
 
-    public function business()
-    {
-    	return $this->belongsTo('Business');
-    }
-
-    public function channels()
-    {
-    	return $this->hasMany('Channel');
-    }
-
     # ToDo Move to presenter
     public function getEmailAttribute()
     {
@@ -113,5 +98,25 @@ class Contact extends Ardent {
         if (!$existingUser && array_key_exists('first_name', $data) && array_key_exists('last_name', $data))
         	$existingUser = self::where('business_id','=',$business->id)->where('first_name', '=', $data['first_name'])->where('last_name', '=', $data['last_name']);
         return $existingUser ? $existingUser->first() : false;
+    }
+
+    ## Relationships ##
+
+    /* Contact is customer of one Business */
+    public function business()
+    {
+        return $this->belongsTo('Business');
+    }
+
+    /* Contact has none, one or many communication Channels */
+    public function channels()
+    {
+        return $this->hasMany('Channel');
+    }
+
+    /* Contact information represents a person who may be or not a registered User */ 
+    public function user()
+    {
+        return $this->belongsTo('User');
     }
 }

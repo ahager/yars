@@ -15,16 +15,6 @@ class Business extends Ardent {
     							'website' => 'url',
     						);
 
-    public function users()
-    {
-    	return $this->belongsToMany('User');
-    }
-
-    public function contacts()
-    {
-        return $this->hasMany('Contact');
-    }
-
     public static function getBySlug($slug)
     {
         return self::where('slug', '=', $slug)->first();
@@ -40,5 +30,18 @@ class Business extends Ardent {
         return $this->attributes['slug'];
     }
 
+    ## Relationships ##
+
+    /* Business is owned by one or more User */
+    public function users()
+    {
+        return $this->belongsToMany('User');
+    }
+
+    /* Business has none, one or more customers represented by an address book Contact */
+    public function contacts()
+    {
+        return $this->hasMany('Contact');
+    }
 }
 

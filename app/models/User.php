@@ -111,16 +111,6 @@ class User extends ConfideUser implements PresentableInterface {
         return $this->businesses->contains($business->id);
     }
 
-    public function businesses()
-    {
-        return $this->belongsToMany('Business');
-    }
-
-    public function contacts()
-    {
-        return $this->hasMany('Contact');
-    }
-
     public function getAgeAttribute()
     {
         return (time() - strtotime($this->created_at))/(60*60*24);
@@ -135,4 +125,19 @@ class User extends ConfideUser implements PresentableInterface {
         if (!$existingUser && array_key_exists('first_name', $data) && array_key_exists('last_name', $data)) $existingUser = self::where('first_name', '=', $data['first_name'])->where('last_name', '=', $data['last_name']);
         return $existingUser ? $existingUser->first() : false;
     }
+
+    ## Relationships ##
+
+    /* User is owner of none, one or many Businesses */
+    public function businesses()
+    {
+        return $this->belongsToMany('Business');
+    }
+
+    /* User has none, one or many Contact profiles */
+    public function contacts()
+    {
+        return $this->hasMany('Contact');
+    }
+
 }
