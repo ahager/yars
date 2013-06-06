@@ -41,6 +41,8 @@ Please see [current milestones](https://github.com/alariva/yars/issues/milestone
 
 Update the file ***app/config/database.php***
 
+Update the file ***app/config/app.php***
+
 > **Available languages:** en, es
 
 ### Step 4: Populate Database
