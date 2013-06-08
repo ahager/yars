@@ -58,7 +58,7 @@ Route::filter('business', function()
 	{
 		 $business = Business::getBySlug(Session::get('businessSlug', false));
 		 # No Business or incorrect Business selected
-		 if (!$business) return Redirect::to('admin/business')->with('warning', trans('site/msg.select_a_business_first'));
+		 if (!$business) return Redirect::to('site')->with('warning', trans('site/msg.select_a_business_first'));
 		 # The selected business is not owned, don't allow admin access
 		 if (!Auth::user()->businesses->contains($business->id)) throw new NotAllowedException;
 	}
