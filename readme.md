@@ -86,6 +86,12 @@ Navigate to /admin
     username: admin
     password: admin
 
+## Running Codeception Tests
+
+    vendor/bin/codeception run
+
+[More About Codeception for Laravel4](http://codeception.com/docs/modules/Laravel4)
+
 ## Official Documentation
 
 Documentation will be available soon.
