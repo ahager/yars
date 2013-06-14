@@ -88,9 +88,15 @@ Navigate to /admin
 
 ## Running Codeception Tests
 
-    vendor/bin/codeception run
+You must first have a running server
 
-[More About Codeception for Laravel4](http://codeception.com/docs/modules/Laravel4)
+    php artisan serve
+
+    vendor/bin/codecept run
+
+You may need to configure the URL if not using ``artisan serve``.
+
+[Check Codeception Docs](http://codeception.com/docs/modules/Laravel4)
 
 ## Official Documentation
 
