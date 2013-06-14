@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			xbooking
+			YARS
 			@show
 		</title>
 		<meta name="keywords" content="" />
@@ -66,7 +66,6 @@
 									</a>
 									<ul class="dropdown-menu">
 										<li{{ (Request::is('admin/users*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/users') }}}"><i class="icon-user"></i> {{ trans('menu.users') }}</a></li>
-										<li{{ (Request::is('admin/roles*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/roles') }}}"><i class="icon-user"></i> {{ trans('menu.roles') }}</a></li>
 										<li{{ (Request::is('admin/contacts*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/contacts') }}}"><i class="icon-user"></i> {{ trans('menu.contacts') }}</a></li>
 										<li{{ (Request::is('admin/businesses*') ? ' class="active"' : '') }}><a href="{{{ URL::to('admin/businesses') }}}"><i class="icon-rocket"></i> {{ trans('menu.businesses') }}</a></li>
 									</ul>
@@ -78,7 +77,7 @@
 								<li>
 									<div class="btn-group">
 										<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-											<i class="icon-user"></i> {{{ Auth::user()->username }}}	<span class="caret"></span>
+											<i class="icon-user"></i> {{{ Auth::user()->username }}}<span class="caret"></span>
 										</a>
 										<ul class="dropdown-menu">
 											<li><a href="{{{ URL::to('user/settings') }}}"><i class="icon-wrench"></i> {{ trans('menu.settings') }}</a></li>

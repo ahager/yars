@@ -21,7 +21,7 @@ return array(
 	'delete'   => 'Delete',
 	'back'     => 'Back',
 	'refresh'  => 'Refresh',
-	'enter'    => 'Entrar',
+	'enter'    => 'Enter',
 	'link'     => 'Link',
 	'start'    => 'Start',
 	'about'    => 'About',

@@ -30,4 +30,10 @@ return array(
 					'email'    => 'Email',
 				],
 	'title' => 'YARS',
+	'msg' =>
+	[
+		'select_a_business_you_own_first' => 'Which of your businesses would you like to manage ?',
+		'select_a_business_first' => 'Select the business you want to enter',
+		'welcome_to' => 'Welcome to :business',
+	]
 );

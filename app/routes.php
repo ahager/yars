@@ -150,7 +150,7 @@ Route::get('{businessSlug}', function($businessSlug)
     $business = Business::getBySlug($businessSlug);
     if (!$business) return Redirect::to('directory')->with('error', Lang::get('site.messages.business_not_found', ['business'=>$businessSlug]) );
     Session::put('businessSlug', $businessSlug);
-    return Redirect::to('site')->with('success', Lang::get('site.messages.welcome_to', ['business'=>$businessSlug]));
+    return Redirect::back()->with('success', Lang::get('app.msg.welcome_to', ['business'=>$businessSlug]));
 })->where('businessSlug', '[A-z0-9\-]+');
 
 Route::get('/', function() {

@@ -2,7 +2,7 @@
 
 return array(
 
-	'username' => 'Userna,e',
+	'username' => 'Username',
 	'email' => 'Email',
 	'fullname' => 'Fullname',
 	'nin' => 'NIN',
